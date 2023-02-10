@@ -13,11 +13,16 @@ module.exports = {
         .setDescription("use AI to generate code!")
         .addStringOption(op => {
             return op.setName('question').setDescription('Write your IT question').setRequired(true)
+        })
+        .addStringOption(op => {
+            return op.setName('language').setDescription('What format').setRequired(false)
         }),
     execute: async (interaction, client) => {
         const question = interaction.options._hoistedOptions[0].value;
+        console.log();
+        const language = interaction.options._hoistedOptions[1].value;
         interaction.deferReply();
-        console.log(question);
+        
         try {
             const response = await openai.createCompletion({
                 model: "text-davinci-003",
@@ -30,7 +35,7 @@ module.exports = {
                 stop: ["\"\"\""],
             });
 
-            const beta = codeBlock(response.data.choices[0].text);
+            const beta = codeBlock( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             console.log('Some Error', error);
