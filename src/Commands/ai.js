@@ -1,6 +1,5 @@
-const { SlashCommandBuilder, codeBlock, inlineCode } = require("@discordjs/builders");
+const { SlashCommandBuilder, codeBlock } = require("@discordjs/builders");
 const { Configuration, OpenAIApi } = require("openai");
-const OpenAI = require('openai-api');
 
 const configuration = new Configuration({
     apiKey: process.env.OPEN_AI_KEY,
