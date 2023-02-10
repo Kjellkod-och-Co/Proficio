@@ -30,7 +30,7 @@ module.exports = {
                 stop: ["\"\"\""],
             });
 
-            const beta = inlineCode(response.data.choices[0].text);
+            const beta = codeBlock(response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             console.log('Some Error', error);
