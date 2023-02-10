@@ -1,29 +1,22 @@
----
-title: Discord bot
-description: A Discord bot written in JavaScript
-tags:
-  - discord.js
-  - javascript
----
+# Proficio
+![Discord](https://img.shields.io/discord/898567277056778330?style=for-the-badge)
+![node-current](https://img.shields.io/node/v/discord.js?style=for-the-badge)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Kjellkod-och-Co/Proficio/discord.js?style=for-the-badge)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Kjellkod-och-Co/Proficio/openai?style=for-the-badge)
+![Codacy grade](https://img.shields.io/codacy/grade/81596b5e3e1c48ad94dc25fcd312c38c?style=for-the-badge)
 
-# Discord.js Example
+**Discord Slash command to help you with your coding questions using [open.ai](https://platform.openai.com/)**
 
-This example starts a Discord bot using [discord.js](https://discord.js.org/#/).
+![ai](ai.png)
+![result](result.png)
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/jX0xQo)
 
-## ✨ Features
 
-- Discord.js
-- JavaScript
+![[result.png]]
 
-## 💁‍♀️ How to use
+## How to use
+1. Type `/ai` to activate Proficio.
+2. Proficio takes two arguments:
+	1. The question (required =  true )
+	2. the language format
 
-- Install dependencies `yarn`
-- Connect to your Railway project `railway link`
-- Start the bot `railway run yarn dev`
-
-## 📝 Notes
-
-- To create a new command, just create a file in the `Commands` directory. You can take a look at the `Template.js` file for an example of what commands should look like. For any additional help see the [discord.js guide](https://discordjs.guide).
-- If you need any additional help with this, join our [Discord server](https://discord.gg/railway) and create a thread in the project help channel.
