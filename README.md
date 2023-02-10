@@ -9,11 +9,6 @@
 
 ![ai](ai.png)
 ![result](result.png)
-
-
-
-![[result.png]]
-
 ## How to use
 1. Type `/ai` to activate Proficio.
 2. Proficio takes two arguments:
