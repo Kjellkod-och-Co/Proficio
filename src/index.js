@@ -1,6 +1,7 @@
 const { REST } = require("@discordjs/rest"); // Define REST.
 const { Routes } = require("discord-api-types/v9"); // Define Routes.
 const fs = require("fs"); // Define fs (file system).
+const dotenv = require('dotenv').config();
 const { Client, Intents, Collection } = require("discord.js"); // Define Client, Intents, and Collection.
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],

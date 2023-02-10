@@ -1,0 +1,39 @@
+const { SlashCommandBuilder, codeBlock, inlineCode } = require("@discordjs/builders");
+const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require('openai-api');
+
+const configuration = new Configuration({
+    apiKey: process.env.OPEN_AI_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("ai")
+        .setDescription("use AI to generate code!")
+        .addStringOption(op => {
+            return op.setName('question').setDescription('Write your IT question').setRequired(true)
+        }),
+    execute: async (interaction, client) => {
+        const question = interaction.options._hoistedOptions[0].value;
+        interaction.deferReply();
+        console.log(question);
+        try {
+            const response = await openai.createCompletion({
+                model: "code-davinci-002",
+                prompt: question,
+                temperature: 0,
+                max_tokens: 64,
+                top_p: 1,
+                frequency_penalty: 0,
+                presence_penalty: 0,
+                stop: ["\"\"\""],
+            });
+
+            const beta = inlineCode(response.data.choices[0].text);
+            await interaction.editReply({ content: String(beta) });
+        } catch (error) {
+            console.log('Some Error', error);
+        }
+    },
+};
