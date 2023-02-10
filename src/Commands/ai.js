@@ -20,10 +20,10 @@ module.exports = {
         console.log(question);
         try {
             const response = await openai.createCompletion({
-                model: "code-davinci-002",
+                model: "text-davinci-003",
                 prompt: question,
-                temperature: 0,
-                max_tokens: 64,
+                temperature: 0.7,
+                max_tokens: 256,
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
