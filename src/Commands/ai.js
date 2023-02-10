@@ -18,10 +18,7 @@ module.exports = {
         }),
     execute: async (interaction, client) => {
         const question = interaction.options._hoistedOptions[0].value;
-        let language =  interaction.options._hoistedOptions[1].value;
-        if(typeof language === undefined ) {
-            language = null;
-        }
+        let language =  interaction.options._hoistedOptions[1].value || undefined;
         console.log('the language', language);
         interaction.deferReply();
         
