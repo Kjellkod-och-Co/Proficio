@@ -9,18 +9,23 @@ const openai = new OpenAIApi(configuration);
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ai")
-        .setDescription("use AI to generate code!")
+        .setDescription("use Proficio to generate code or explain something useful!")
         .addStringOption(op => {
-            return op.setName('question').setDescription('Write your IT question').setRequired(true)
+            return op.setName('question').setDescription('Write your question').setRequired(true)
         })
         .addStringOption(op => {
-            return op.setName('language').setDescription('What format').setRequired(false)
+            return op.setName('format').setDescription('What format shall your code be in?').setRequired(false)
         }),
     execute: async (interaction, client) => {
-        console.log('The Client', client);
+        // console.log('The Client', client);
         const question = interaction.options._hoistedOptions[0].value;
-        const language = interaction.options._hoistedOptions[1].value || 'text';
+        let language = 'text';
+        if(language != 'text') {
+            language = interaction.options._hoistedOptions[1].value;
+        }
+        
         console.log('the language', language);
+        
         interaction.deferReply();
         
         try {
@@ -38,7 +43,8 @@ module.exports = {
             const beta = codeBlock( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
-            await interaction.editReply({content: error.data});
+            console.log(error);
+            await interaction.editReply({content: error.data.content});
         }
     },
 };
