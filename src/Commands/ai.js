@@ -19,9 +19,9 @@ module.exports = {
     execute: async (interaction, client) => {
         // console.log('The Client', client);
         const question = interaction.options._hoistedOptions[0].value;
-        
-        let userLanguage = interaction.options._hoistedOptions[1].value;
-        if(typeof userLanguage === undefined) {
+
+        let userLanguage = interaction.options._hoistedOptions[1].value || 'text';
+        if(userLanguage === 'text') {
             userLanguage = 'text';
         } else {
             userLanguage = interaction.options._hoistedOptions[1].value;
