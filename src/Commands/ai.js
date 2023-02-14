@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, codeBlock } = require("@discordjs/builders");
+const { SlashCommandBuilder, inlineCode } = require("@discordjs/builders");
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
@@ -18,7 +18,7 @@ module.exports = {
         }),
     execute: async (interaction, client) => {
         const question = interaction.options._hoistedOptions[0].value;
-        language = 'text' || interaction.options._hoistedOptions[1].value;
+        let language = 'text' || interaction.options._hoistedOptions[1].value;
         console.log('the language', language);
         interaction.deferReply();
         
@@ -34,7 +34,7 @@ module.exports = {
                 stop: ["\"\"\""],
             });
 
-            const beta = codeBlock( language ,response.data.choices[0].text);
+            const beta = inlineCode( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             console.log('Some Error', error);
