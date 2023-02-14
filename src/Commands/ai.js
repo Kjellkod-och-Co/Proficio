@@ -37,7 +37,7 @@ module.exports = {
             const beta = inlineCode( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
-            console.log('Some Error', error);
+            console.log('Some Error', error.data);
         }
     },
 };
