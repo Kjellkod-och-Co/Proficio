@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, inlineCode } = require("@discordjs/builders");
+const { SlashCommandBuilder, codeBlock } = require("@discordjs/builders");
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
@@ -35,7 +35,7 @@ module.exports = {
                 stop: ["\"\"\""],
             });
 
-            const beta = inlineCode( language ,response.data.choices[0].text);
+            const beta = codeBlock( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             await interaction.editReply({content: error.data});
