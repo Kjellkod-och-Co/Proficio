@@ -43,6 +43,8 @@ module.exports = {
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             console.log(error);
+            interaction.deferReply();
+            
             await interaction.editReply({content: error.data.content});
         }
     },
