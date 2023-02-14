@@ -43,7 +43,7 @@ module.exports = {
                 stop: ["\"\"\""],
             });
 
-            const beta = codeBlock( language ,response.data.choices[0].text);
+            const beta = codeBlock( userLanguage ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
             console.log(error);
