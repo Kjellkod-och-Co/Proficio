@@ -27,7 +27,7 @@ module.exports = {
             userLanguage = interaction.options._hoistedOptions[1].value;
         }
         
-        console.log('the language', language);
+        console.log('the language', userLanguage);
         
         interaction.deferReply();
         
