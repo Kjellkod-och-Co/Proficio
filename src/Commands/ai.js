@@ -17,6 +17,7 @@ module.exports = {
             return op.setName('language').setDescription('What format').setRequired(false)
         }),
     execute: async (interaction, client) => {
+        console.log('The Client', client);
         const question = interaction.options._hoistedOptions[0].value;
         const language = interaction.options._hoistedOptions[1].value || 'text';
         console.log('the language', language);
@@ -37,7 +38,7 @@ module.exports = {
             const beta = inlineCode( language ,response.data.choices[0].text);
             await interaction.editReply({ content: String(beta) });
         } catch (error) {
-            console.log('Some Error', error.data);
+            await interaction.editReply({content: error.data});
         }
     },
 };
