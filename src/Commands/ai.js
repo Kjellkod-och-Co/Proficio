@@ -14,18 +14,14 @@ module.exports = {
             return op.setName('question').setDescription('Write your question').setRequired(true)
         })
         .addStringOption(op => {
-            return op.setName('format').setDescription('What format shall your code be in?').setRequired(false)
+            return op.setName('format').setDescription('What format shall your code be in? default is text').setRequired(true)
         }),
     execute: async (interaction, client) => {
         // console.log('The Client', client);
         const question = interaction.options._hoistedOptions[0].value;
 
-        let userLanguage =  'text' || interaction.options._hoistedOptions[1].value;
-        if(userLanguage === 'text') {
-            userLanguage = 'text';
-        } else {
-            userLanguage = interaction.options._hoistedOptions[1].value;
-        }
+        const userLanguage = interaction.options._hoistedOptions[1].value;
+
         
         console.log('the language', userLanguage);
         
