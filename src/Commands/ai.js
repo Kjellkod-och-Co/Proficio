@@ -20,7 +20,7 @@ module.exports = {
         // console.log('The Client', client);
         const question = interaction.options._hoistedOptions[0].value;
 
-        let userLanguage = interaction.options._hoistedOptions[1].value || 'text';
+        let userLanguage =  'text' || interaction.options._hoistedOptions[1].value;
         if(userLanguage === 'text') {
             userLanguage = 'text';
         } else {
