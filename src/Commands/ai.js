@@ -29,10 +29,10 @@ module.exports = {
         
         try {
             const response = await openai.createCompletion({
-                model: "code-davinci-002",
+                model: "code-cushman-001",
                 prompt: question,
                 temperature: 0.7,
-                max_tokens: 64,
+                max_tokens: 256,
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
