@@ -33,7 +33,6 @@ module.exports = {
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
-                stop: ["\"\"\""],
             });
 
             const beta = codeBlock( userLanguage ,response.data.choices[0].text);
